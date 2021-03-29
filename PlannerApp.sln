@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlannerApp.Android", "PlannerApp\PlannerApp.Android\PlannerApp.Android.csproj", "{CCF70D5A-9E5D-451B-AB43-157DE017F37A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlannerApp", "PlannerApp\PlannerApp\PlannerApp.csproj", "{215B44A4-FB23-4306-9A8E-F373A47EBC70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCF70D5A-9E5D-451B-AB43-157DE017F37A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF70D5A-9E5D-451B-AB43-157DE017F37A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF70D5A-9E5D-451B-AB43-157DE017F37A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CCF70D5A-9E5D-451B-AB43-157DE017F37A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF70D5A-9E5D-451B-AB43-157DE017F37A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCF70D5A-9E5D-451B-AB43-157DE017F37A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{215B44A4-FB23-4306-9A8E-F373A47EBC70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{215B44A4-FB23-4306-9A8E-F373A47EBC70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{215B44A4-FB23-4306-9A8E-F373A47EBC70}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{215B44A4-FB23-4306-9A8E-F373A47EBC70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{215B44A4-FB23-4306-9A8E-F373A47EBC70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{215B44A4-FB23-4306-9A8E-F373A47EBC70}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {947AA257-F735-45F1-A223-F26043565B63}
+	EndGlobalSection
+EndGlobal

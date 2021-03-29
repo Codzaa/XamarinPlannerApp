@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:PlannerApp.ViewModels"
+             x:Class="PlannerApp.Views.PlansPage">
+
+    <ContentPage.BindingContext>
+        <local:PlansViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddPlanCommand}" />
+        <ToolbarItem Text="Edit" Command="{Binding EditPlanCommand}" />
+    </ContentPage.ToolbarItems>
+
+    
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*">
+            <Label
+                Grid.Row="0"
+                Text="PLANS"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="Black"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                />
+            <CollectionView
+                Grid.Row="1"
+                ItemsSource="{Binding PlansList}"
+                >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <Frame HasShadow="True" CornerRadius="15" Margin="0,5" Padding="10" HeightRequest="100" BackgroundColor="{Binding BgColor}">
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Orientation="Horizontal" Spacing="10">
+                                        <BoxView WidthRequest="12" HeightRequest="12" CornerRadius="6" BackgroundColor="#F8F8F8" VerticalOptions="Center"/>
+                                        <Label Text="{Binding PlanTitle}" FontSize="12" TextColor="#F8F8F8"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" Grid.Row="1" HorizontalOptions="End" Margin="10" Spacing="15">
+                                        <StackLayout>
+                                            <Label Text="{Binding Days}" FontSize="35" FontAttributes="Bold" TextColor="White" HorizontalOptions="End"/>
+                                            <Label Text="DAYS" FontSize="10" TextColor="White" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <Label Text="{Binding Hours}" FontSize="35" FontAttributes="Bold" TextColor="White" HorizontalOptions="End"/>
+                                            <Label Text="HOURS" FontSize="10" TextColor="White" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <Label Text="{Binding Minutes}" FontSize="35" FontAttributes="Bold" TextColor="White" HorizontalOptions="End"/>
+                                            <Label Text="MINUTES" FontSize="10" TextColor="White" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <Label Text="{Binding Seconds}" FontSize="35" FontAttributes="Bold" TextColor="White" HorizontalOptions="End"/>
+                                            <Label Text="SECONDS" FontSize="10" TextColor="White" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+<!--
+    <StackLayout>
+                            <Label
+                            Text="{Binding PlanTitle}"
+                            />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                     NumberOfTapsRequired="1"
+                                     Command="{Binding Source={RelativeSource AncestorType={x:Type local:PlansViewModel}}, Path=ItemTapped}"
+                                     CommandParameter="{Binding .}"
+                                    >
+                                    
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+        -->

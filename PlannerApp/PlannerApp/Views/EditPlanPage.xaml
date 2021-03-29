@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:PlannerApp.ViewModels"
+             x:Class="PlannerApp.Views.EditPlanPage">
+
+    <ContentPage.BindingContext>
+        <local:EditPlanViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                Text="{Binding PlanTitle}"
+                />
+            <Button
+                Text="Save"
+                Command="{Binding SaveCommand}"
+                />
+            <Button
+                Text="Delete"
+                Command="{Binding DeleteCommand}"
+                />
+            <Button
+                Text="Cancel"
+                Command="{Binding CancelCommand}"
+                />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
