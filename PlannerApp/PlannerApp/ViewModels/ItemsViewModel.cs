@@ -26,6 +26,7 @@ namespace PlannerApp.ViewModels
             ItemTapped = new Command<Item>(OnItemSelected);
 
             AddItemCommand = new Command(OnAddItem);
+
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -74,7 +75,7 @@ namespace PlannerApp.ViewModels
 
         async void OnItemSelected(Item item)
         {
-            if (item == null)
+            if (item == null)//////////////
                 return;
 
             // This will push the ItemDetailPage onto the navigation stack

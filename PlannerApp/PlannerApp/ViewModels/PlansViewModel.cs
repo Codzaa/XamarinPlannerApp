@@ -1,8 +1,10 @@
 ﻿using PlannerApp.Models;
+using PlannerApp.Services;
 using PlannerApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace PlannerApp.ViewModels
@@ -19,11 +21,14 @@ namespace PlannerApp.ViewModels
             EditPlanCommand = new Command(EditPlanAsync);
             //
             ItemTapped = new Command<Plan>(OnPlanSelected);
+            //
+            
         }
 
         //Public Variables
         private Plan _selectedItem;
         public Command<Plan> ItemTapped { get; }
+
 
 
         //
@@ -34,6 +39,9 @@ namespace PlannerApp.ViewModels
             getPlans();
             //
             SelectedItem = null;
+            //
+            //ShowNotification();
+
         }
         public Plan SelectedItem
         {
@@ -60,7 +68,9 @@ namespace PlannerApp.ViewModels
         //Get All Plans
         public async void getPlans()
         {
-            PlansList = await App.Database.GetPlansAsync();
+            collections = await App.Database.GetPlansAsync();
+            PlansList = collections;
+            Setup();
         }
 
         //Add Plan
@@ -89,6 +99,30 @@ namespace PlannerApp.ViewModels
             await Shell.Current.GoToAsync($"{nameof(EditPlanPage)}?{nameof(EditPlanViewModel.PlanTitle)}={plan.PlanTitle}");
             //await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
         }
+
+        //
+        private void Setup()
+        {
+
+            Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+            {
+                foreach (var plan in collections)
+                {
+                    var timespan = plan.Date - DateTime.Now;
+                    plan.TimeSpan = timespan;
+                }
+
+                PlansList = null;
+                PlansList = collections;
+          
+                return true;
+            });
+
+        }
+
+
+
+
 
 
     }
