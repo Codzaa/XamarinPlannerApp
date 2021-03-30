@@ -84,8 +84,8 @@
     <FlyoutItem Title="Completed" Icon="icon_about.png">
         <ShellContent Route="CompletedPlansPage" ContentTemplate="{DataTemplate local:CompletedPlansPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Test" Icon="icon_feed.png">
-        <ShellContent Route="TestPage" ContentTemplate="{DataTemplate local:TestPage}" />
+    <FlyoutItem Title="Important Plans" Icon="icon_about.png">
+        <ShellContent Route="ImportantPlansPage" ContentTemplate="{DataTemplate local:ImportantPlansPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->

@@ -1,37 +1,22 @@
 ﻿using PlannerApp.Models;
-using PlannerApp.Services;
 using PlannerApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace PlannerApp.ViewModels
 {
-    public class PlansViewModel:BindableObject
+    public class ImportantPlansViewModel:BindableObject
     {
-        //Commands
-        public Command AddPlanCommand { get; }
-        public Command EditPlanCommand { get; }
-        //Constructor
-        public PlansViewModel()
-        {
-            AddPlanCommand = new Command(AddPlanAsync);
-            EditPlanCommand = new Command(EditPlanAsync);
-            //
-            ItemTapped = new Command<Plan>(OnPlanSelected);
-            //
-            
-        }
-
-        //Public Variables
-        private Plan _selectedItem;
+       
         public Command<Plan> ItemTapped { get; }
 
+        public ImportantPlansViewModel()
+        {
+            ItemTapped = new Command<Plan>(OnPlanSelected);
+        }
 
-
-        //
         public void OnAppearing()
         {
 
@@ -43,6 +28,8 @@ namespace PlannerApp.ViewModels
             //ShowNotification();
 
         }
+        //Public Variables
+        private Plan _selectedItem;
         public Plan SelectedItem
         {
             get => _selectedItem;
@@ -58,47 +45,30 @@ namespace PlannerApp.ViewModels
             get => plansList;
             set
             {
-                if(value == plansList) { return; }
+                if (value == plansList) { return; }
                 plansList = value;
                 OnPropertyChanged();
             }
         }
         //
         public List<Plan> collections = new List<Plan>();
-        public List<Plan> nonfinishedPlans = new List<Plan>();
+        public List<Plan> importantPlans = new List<Plan>();
         //Get All Plans
         public async void getPlans()
         {
-            nonfinishedPlans = new List<Plan>();
+            importantPlans = new List<Plan>();
             collections = await App.Database.GetPlansAsync();
-            foreach(var plan in collections)
+            foreach (var plan in collections)
             {
-                if (!plan.Finished)
+                if (plan.Priority == "high")
                 {
-                    nonfinishedPlans.Add(plan);
+                    importantPlans.Add(plan);
                 }
             }
-            PlansList = nonfinishedPlans;
+            PlansList = importantPlans;
             //
             Setup();
         }
-
-        //Add Plan
-        public async void AddPlanAsync()
-        {
-
-            //await App.Database.SavePlanAsync(tempAlbumObj);
-            await Shell.Current.GoToAsync(nameof(NewPlanPage));
-        }
-
-        //Delete Plan
-        public async void EditPlanAsync()
-        {
-
-            //
-            await Shell.Current.GoToAsync(nameof(EditPlanPage));
-        }
-
         //On Item Tapped
         async void OnPlanSelected(Plan plan)
         {
@@ -116,26 +86,20 @@ namespace PlannerApp.ViewModels
 
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
             {
-                foreach (var plan in nonfinishedPlans)
+                foreach (var plan in importantPlans)
                 {
                     var timespan = plan.Date - DateTime.Now;
                     plan.TimeSpan = timespan;
                 }
 
                 PlansList = null;
-                PlansList = nonfinishedPlans;
-          
-                return true;
+                PlansList = importantPlans;
+
+            return true;
             });
 
 
 
         }
-
-
-
-
-
-
     }
 }

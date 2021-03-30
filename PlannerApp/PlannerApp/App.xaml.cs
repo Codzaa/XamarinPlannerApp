@@ -26,7 +26,6 @@ namespace PlannerApp
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 

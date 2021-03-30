@@ -209,6 +209,11 @@ namespace PlannerApp.ViewModels
             //
             PlanObj.Finished = true;
             PlanObj.BgColor = "#959695";
+            //
+            var timespan = PlanObj.Date - DateTime.Now;
+            PlanObj.SavedTime = timespan.TotalHours.ToString("#.##");
+            PlanObj.Priority = "";
+            //
             await App.Database.EditPlanAsync(PlanObj);
             //
             // This will pop the current page off the navigation stack

@@ -1,23 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:PlannerApp.ViewModels"
-             x:Class="PlannerApp.Views.PlansPage">
+             x:Class="PlannerApp.Views.ImportantPlansPage">
 
     <ContentPage.BindingContext>
-        <local:PlansViewModel/>
+        <local:ImportantPlansViewModel/>
     </ContentPage.BindingContext>
-    
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddPlanCommand}" />
-    </ContentPage.ToolbarItems>
-
     
     <ContentPage.Content>
         <Grid RowDefinitions="Auto,*">
             <Label
                 Grid.Row="0"
-                Text="PLANS"
+                Text="Important Plans"
                 FontSize="24"
                 FontAttributes="Bold"
                 TextColor="Black"
@@ -32,14 +27,6 @@
                     <DataTemplate>
                         <ContentView>
                             <Frame HasShadow="True" CornerRadius="15" Margin="0,5" Padding="10" HeightRequest="100" BackgroundColor="{Binding BgColor}">
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer
-                                        NumberOfTapsRequired="1"
-                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type local:PlansViewModel}}, Path=ItemTapped}"
-                                                 CommandParameter="{Binding .}">
-
-                                    </TapGestureRecognizer>
-                                </Frame.GestureRecognizers>
                                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
@@ -48,17 +35,10 @@
                                     <StackLayout Orientation="Horizontal" Spacing="10">
                                         <BoxView WidthRequest="12" HeightRequest="12" CornerRadius="6" BackgroundColor="#F8F8F8" VerticalOptions="Center"/>
                                         <Label Text="{Binding PlanTitle}" FontSize="12" TextColor="#F8F8F8"/>
-                                        <StackLayout.GestureRecognizers>
-                                            <TapGestureRecognizer
-                                                 NumberOfTapsRequired="1"
-                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type local:PlansViewModel}}, Path=ItemTapped}"
-                                                 CommandParameter="{Binding .}"
-                                                >
-                                            </TapGestureRecognizer>
-                                        </StackLayout.GestureRecognizers>
+                                        <Label Text="{Binding PlanDescription}" FontSize="12" TextColor="#F8F8F8"/>
                                     </StackLayout>
-
-
+                                    
+                          
                                     <StackLayout Orientation="Horizontal" Grid.Row="1" HorizontalOptions="End" Margin="10" Spacing="15">
                                         <StackLayout>
                                             <Label Text="{Binding Days}" FontSize="35" FontAttributes="Bold" TextColor="White" HorizontalOptions="End"/>
@@ -76,8 +56,9 @@
                                             <Label Text="{Binding Seconds}" FontSize="35" FontAttributes="Bold" TextColor="White" HorizontalOptions="End"/>
                                             <Label Text="SECONDS" FontSize="10" TextColor="White" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
                                         </StackLayout>
+      
                                     </StackLayout>
-                                    
+
                                 </Grid>
                             </Frame>
                         </ContentView>
@@ -87,19 +68,3 @@
         </Grid>
     </ContentPage.Content>
 </ContentPage>
-<!--
-    <StackLayout>
-                            <Label
-                            Text="{Binding PlanTitle}"
-                            />
-                            <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer
-                                     NumberOfTapsRequired="1"
-                                     Command="{Binding Source={RelativeSource AncestorType={x:Type local:PlansViewModel}}, Path=ItemTapped}"
-                                     CommandParameter="{Binding .}"
-                                    >
-                                    
-                                </TapGestureRecognizer>
-                            </StackLayout.GestureRecognizers>
-                        </StackLayout>
-        -->

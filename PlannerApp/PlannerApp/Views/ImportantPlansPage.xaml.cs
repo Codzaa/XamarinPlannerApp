@@ -4,18 +4,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace PlannerApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class ImportantPlansPage : ContentPage
     {
-        public LoginPage()
+        public ImportantPlansPage()
         {
             InitializeComponent();
-            this.BindingContext = new LoginViewModel();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            //
+            var vm = BindingContext as ImportantPlansViewModel;
+            //
+            vm.OnAppearing();
         }
     }
 }

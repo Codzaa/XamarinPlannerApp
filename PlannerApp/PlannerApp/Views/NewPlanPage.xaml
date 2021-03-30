@@ -11,8 +11,10 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <Grid RowDefinitions="100,100,100,100,50,50,50*"
-              ColumnDefinitions="*,*">
+        <Grid
+            BackgroundColor="AntiqueWhite"
+            RowDefinitions="100,100,100,100,50,50,50*"
+            ColumnDefinitions="*,*">
             
             <Label
                 Grid.Row="0"
@@ -68,7 +70,8 @@
                 FontAttributes="Bold"
                 TextColor="Black"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand"
+                BackgroundColor="AntiqueWhite"/>
             
             <DatePicker 
                 Grid.Row="4"
@@ -76,12 +79,15 @@
                 MinimumDate="01/01/2021"
                 MaximumDate="12/31/2022"
                 HorizontalOptions="Center"
-                Date="{Binding NewDate}" />
+                Date="{Binding NewDate}"
+                TextColor="Black"
+                BackgroundColor="AntiqueWhite"/>
 
             <TimePicker
                 Grid.Row="4"
                 Grid.Column="1"
                 HorizontalOptions="Center"
+                TextColor="Black"
                 Time="{Binding NewTime}" />
 
             <Label
@@ -99,6 +105,7 @@
                 Grid.Row="5"
                 Grid.Column="1"
                 Title="Priority"
+                TextColor="Black"
                 ItemsSource="{Binding LevelsList}"
                 ItemDisplayBinding="{Binding Levelvalue}"
                 SelectedItem="{Binding PriorityLevel}"
@@ -111,12 +118,15 @@
                 Grid.Row="6"
                 Grid.Column="1"
                 Text="Cancel"
+                TextColor="Black"
                 Command="{Binding CancelCommand}"
                 />
             <Button
                 Grid.Row="6"
                 Grid.Column="0"
                 Text="Save"
+                TextColor="Black"
+               
                 Command="{Binding SaveCommand}"
                 />
         </Grid>

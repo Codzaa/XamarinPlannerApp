@@ -161,7 +161,7 @@ namespace PlannerApp.ViewModels
         {
             //
             notificationNumber++;
-            string title = $"Local Notification #{notificationNumber}";
+            string title = $"Notification #{NewTitle}";
             string message = $"You have now received {notificationNumber} notifications!";
             var dat = new DateTime(dtime.Ticks);
             //

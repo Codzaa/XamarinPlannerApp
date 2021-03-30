@@ -40,7 +40,7 @@
 
                                     <StackLayout Orientation="Horizontal" Grid.Row="1" HorizontalOptions="Center"  Margin="10" Spacing="15">
                                         <Label
-                                            Text="Analytics"
+                                            Text="Saved Time(Hours)"
                                             TextColor="Black"
                                             />
                                         <Label

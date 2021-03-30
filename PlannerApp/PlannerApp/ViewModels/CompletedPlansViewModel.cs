@@ -54,12 +54,19 @@ namespace PlannerApp.ViewModels
         //Calculate Time Saved
         private void getSavedTime()
         {
-
+          
+            
             foreach (var plan in finishedPlans)
             {
-                var timespan = plan.Date - DateTime.Now;
-                plan.SavedTime = timespan.TotalHours.ToString();
+                if (plan.SavedTime == null)
+                {
+                    
+                }
+
+                
             }
+     
+            
 
             //
             //var savedTimeSpan = plan.Date - DateTime.Now;
