@@ -13,6 +13,8 @@ namespace PlannerApp.Models
         public string PlanTitle { get; set; }
         public string PlanDescription{ get; set; }
         public string Priority { get; set; }
+        public bool Finished { get; set; }
+        public string SavedTime { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan TimeSpan { get; set; }
         public string Days => TimeSpan.Days.ToString("00");

@@ -10,7 +10,6 @@
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddPlanCommand}" />
-        <ToolbarItem Text="Edit" Command="{Binding EditPlanCommand}" />
     </ContentPage.ToolbarItems>
 
     

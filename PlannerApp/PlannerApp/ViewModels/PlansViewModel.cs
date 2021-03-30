@@ -65,11 +65,21 @@ namespace PlannerApp.ViewModels
         }
         //
         public List<Plan> collections = new List<Plan>();
+        public List<Plan> nonfinishedPlans = new List<Plan>();
         //Get All Plans
         public async void getPlans()
         {
+            nonfinishedPlans = new List<Plan>();
             collections = await App.Database.GetPlansAsync();
-            PlansList = collections;
+            foreach(var plan in collections)
+            {
+                if (!plan.Finished)
+                {
+                    nonfinishedPlans.Add(plan);
+                }
+            }
+            PlansList = nonfinishedPlans;
+            //
             Setup();
         }
 
@@ -113,7 +123,7 @@ namespace PlannerApp.ViewModels
                 }
 
                 PlansList = null;
-                PlansList = collections;
+                PlansList = nonfinishedPlans;
           
                 return true;
             });

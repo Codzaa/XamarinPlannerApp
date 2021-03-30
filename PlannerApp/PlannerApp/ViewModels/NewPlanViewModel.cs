@@ -140,6 +140,8 @@ namespace PlannerApp.ViewModels
                 PlanDescription = NewDescription,
                 Priority = PriorityLevel.Levelvalue,
                 BgColor = bgColor,
+                //TimeSpan = newTime,
+                Finished = false,
                 //Date = new DateTime(DateTime.Now.Ticks + new TimeSpan(0,0,0,10).Ticks)
                 Date = new DateTime(newDate.Ticks + newTime.Ticks)
                 
