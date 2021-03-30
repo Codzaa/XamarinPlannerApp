@@ -9,6 +9,125 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
+        <Grid RowDefinitions="100,100,100,100,50,50,50*"
+              ColumnDefinitions="*,*,*">
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Title"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="Black"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Entry
+                Grid.Row="0"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Placeholder="Enter title"
+                PlaceholderColor="#b5b2aa"
+                TextColor="Black"
+                Text="{Binding NewTitle}"
+                />
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="Description"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="Black"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Editor
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Placeholder="Enter Something..."
+                PlaceholderColor="#b5b2aa"
+                TextColor="Black"
+                Text="{Binding NewDescription}"
+                />
+            <Label
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Date"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="Black"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label
+                Grid.Row="3"
+                Grid.Column="2"
+                Text="Time"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="Black"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <DatePicker 
+                Grid.Row="4"
+                Grid.Column="0"
+                MinimumDate="01/01/2020"
+                MaximumDate="12/31/2022"
+                HorizontalOptions="Center"
+                Date="{Binding NewDate}" />
+
+            <TimePicker
+                Grid.Row="4"
+                Grid.Column="2"
+                HorizontalOptions="Center"
+                Time="{Binding NewTime}" />
+
+            <Label
+                Grid.Row="5"
+                Grid.Column="0"
+                Text="Choose Priority"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="Black"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" 
+
+                />
+
+            <Picker
+                Grid.Row="5"
+                Grid.Column="1"
+                Title="Priority"
+                ItemsSource="{Binding LevelsList}"
+                ItemDisplayBinding="{Binding Levelvalue}"
+                SelectedItem="{Binding PriorityLevel}"
+                >
+
+            </Picker>
+
+
+            <Button
+                Grid.Row="6"
+                Grid.Column="0"
+                Text="Delete"
+                TextColor="Black"
+                Command="{Binding DeleteCommand}"
+                />
+            <Button
+                Grid.Row="6"
+                Grid.Column="1"
+                Text="Save"
+                TextColor="Black"
+                Command="{Binding SaveCommand}"
+                />
+            <Button
+                Grid.Row="6"
+                Grid.Column="2"
+                Text="Cancel"
+                TextColor="Black"
+                Command="{Binding CancelCommand}"
+                />
+        </Grid>
+        <!--
         <StackLayout>
             <Label
                 Text="{Binding PlanTitle}"
@@ -26,6 +145,6 @@
                 Command="{Binding CancelCommand}"
                 />
 
-        </StackLayout>
+        </StackLayout> -->
     </ContentPage.Content>
 </ContentPage>

@@ -11,7 +11,7 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <Grid RowDefinitions="100,100,100,100,100,100*"
+        <Grid RowDefinitions="100,100,100,100,50,50,50*"
               ColumnDefinitions="*,*">
             
             <Label
@@ -83,16 +83,37 @@
                 HorizontalOptions="Center"
                 Time="{Binding NewTime}" />
 
+            <Label
+                Grid.Row="5"
+                Grid.Column="0"
+                Text="Choose Priority"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="Black"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                />
+            
+            <Picker
+                Grid.Row="5"
+                Grid.Column="1"
+                Title="Priority"
+                ItemsSource="{Binding LevelsList}"
+                ItemDisplayBinding="{Binding Levelvalue}"
+                SelectedItem="{Binding PriorityLevel}"
+                >
+                
+            </Picker>
 
 
             <Button
-                Grid.Row="5"
+                Grid.Row="6"
                 Grid.Column="1"
                 Text="Cancel"
                 Command="{Binding CancelCommand}"
                 />
             <Button
-                Grid.Row="5"
+                Grid.Row="6"
                 Grid.Column="0"
                 Text="Save"
                 Command="{Binding SaveCommand}"

@@ -92,7 +92,12 @@ namespace PlannerApp.Droid
                 .SetPriority((int)NotificationPriority.High)
                 .SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, Resource.Drawable.icon_feed))
                 .SetSmallIcon(Resource.Drawable.icon_feed)
+                //
+                //.SetChannelId("10023")
+                .SetVisibility((int)NotificationVisibility.Public)
+                //
                 .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate);
+
 
             Notification notification = builder.Build();
             manager.Notify(messageId++, notification);

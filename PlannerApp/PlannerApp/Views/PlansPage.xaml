@@ -41,12 +41,18 @@
                                     <StackLayout Orientation="Horizontal" Spacing="10">
                                         <BoxView WidthRequest="12" HeightRequest="12" CornerRadius="6" BackgroundColor="#F8F8F8" VerticalOptions="Center"/>
                                         <Label Text="{Binding PlanTitle}" FontSize="12" TextColor="#F8F8F8"/>
-                                        
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                 NumberOfTapsRequired="1"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type local:PlansViewModel}}, Path=ItemTapped}"
+                                                 CommandParameter="{Binding .}"
+                                                >
+                                            </TapGestureRecognizer>
+                                        </StackLayout.GestureRecognizers>
                                     </StackLayout>
-                                    
+
 
                                     <StackLayout Orientation="Horizontal" Grid.Row="1" HorizontalOptions="End" Margin="10" Spacing="15">
-                                        
                                         <StackLayout>
                                             <Label Text="{Binding Days}" FontSize="35" FontAttributes="Bold" TextColor="White" HorizontalOptions="End"/>
                                             <Label Text="DAYS" FontSize="10" TextColor="White" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
