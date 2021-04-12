@@ -66,19 +66,37 @@ namespace PlannerApp.ViewModels
         //
         public List<Plan> collections = new List<Plan>();
         public List<Plan> nonfinishedPlans = new List<Plan>();
+        public TimeSpan defaulttimer = new TimeSpan(0, 0, 1);
         //Get All Plans
         public async void getPlans()
         {
+
             nonfinishedPlans = new List<Plan>();
             collections = await App.Database.GetPlansAsync();
-            foreach(var plan in collections)
+            //
+
+            //
+            foreach (var plan in collections)
             {
+                //
+                var timespan = plan.Date - DateTime.Now;
+                plan.TimeSpan = timespan;
+                //
                 if (!plan.Finished)
                 {
-                    nonfinishedPlans.Add(plan);
+                    if(plan.TimeSpan > defaulttimer)
+                      {
+                        nonfinishedPlans.Add(plan);
+                    }
+                    else
+                    {
+                        UpdateDataBase(plan);
+                    }
+                        
                 }
             }
             PlansList = nonfinishedPlans;
+            //updatedPlans = nonfinishedPlans;
             //
             Setup();
         }
@@ -111,24 +129,60 @@ namespace PlannerApp.ViewModels
         }
 
         //
+        public List<Plan> updatedPlans = new List<Plan>();
         private void Setup()
         {
 
+            //updatedPlans = nonfinishedPlans;
+            
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
             {
-                foreach (var plan in nonfinishedPlans)
+                
+                Device.BeginInvokeOnMainThread(() =>
                 {
-                    var timespan = plan.Date - DateTime.Now;
-                    plan.TimeSpan = timespan;
-                }
+                    // interact with UI elements
+                    //PlansList = null;  
+                    foreach (var plan in nonfinishedPlans)
+                    {
+                        
+                        //updatedPlans.Add(plan);
+                        //
+                        if (plan.TimeSpan < defaulttimer)
+                        {
+                            //updatedPlans.Add(plan);
+                            plan.BgColor = "#959695";
+                            plan.Finished = true;
+                            plan.Priority = null;
+                            //Break;
+                            //await App.Database.EditPlanAsync(PlanObj);
+                            UpdateDataBase(plan);
 
-                PlansList = null;
-                PlansList = nonfinishedPlans;
-          
+                        }
+                        else
+                        {
+                            var timespan = plan.Date - DateTime.Now;
+                            plan.TimeSpan = timespan;
+                        }
+                        
+                    }
+
+                    PlansList = null;
+                    PlansList = nonfinishedPlans;
+                    //updatedPlans = null;
+                });
+
+
+
                 return true;
             });
+        }
 
+        //public Plan tempPlanObj;
+        public async void UpdateDataBase(Plan tempPlanObj)
+        {
 
+            await App.Database.EditPlanAsync(tempPlanObj);
+            nonfinishedPlans.Remove(tempPlanObj);
 
         }
 

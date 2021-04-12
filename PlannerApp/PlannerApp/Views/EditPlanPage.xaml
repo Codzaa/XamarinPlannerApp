@@ -9,8 +9,10 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <Grid RowDefinitions="80,50,50*,50,50,80,50,80"
-              ColumnDefinitions="*,*,*">
+        <Grid
+            BackgroundColor="AntiqueWhite"
+            RowDefinitions="80,50,50*,50,50,80,50,80"
+            ColumnDefinitions="*,*,*">
 
             <Label
                 Grid.Row="0"
@@ -70,12 +72,14 @@
                 Grid.Column="0"
                 MinimumDate="01/01/2020"
                 MaximumDate="12/31/2022"
+                TextColor="Black"
                 HorizontalOptions="Center"
                 Date="{Binding NewDate}" />
 
             <TimePicker
                 Grid.Row="4"
                 Grid.Column="2"
+                TextColor="Black"
                 HorizontalOptions="Center"
                 Time="{Binding NewTime}" />
 

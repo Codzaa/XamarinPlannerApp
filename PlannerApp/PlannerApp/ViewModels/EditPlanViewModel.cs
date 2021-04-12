@@ -151,11 +151,12 @@ namespace PlannerApp.ViewModels
             if (NewDescription == null) { return; }
             if (NewDate == null) { return; }
             if (NewTime == null) { return; }
-            if (PriorityLevel == null) { return; }
+            //if (PriorityLevel == null) { return; }
             //
             DateTime defaultDate = DateTime.Now;
             DateTime dt2 = newDate;
             //
+            /*
             string bgColor;
             if (PriorityLevel.Levelvalue == "high")
             {
@@ -168,7 +169,7 @@ namespace PlannerApp.ViewModels
             else
             {
                 bgColor = "#ceedd9";
-            }
+            }*/
             //
             //
             //ShowNotification(newPlan.Date);
@@ -182,14 +183,15 @@ namespace PlannerApp.ViewModels
             var tempObj = new Plan();
             PlanObj.PlanTitle = tempObj.PlanTitle = newTitle;
             PlanObj.PlanDescription = tempObj.PlanDescription = NewDescription;
-            PlanObj.Priority = tempObj.Priority = PriorityLevel.Levelvalue;
-            PlanObj.BgColor = tempObj.BgColor = bgColor;
+            //PlanObj.Priority = tempObj.Priority = PriorityLevel.Levelvalue;
+            //PlanObj.BgColor = tempObj.BgColor = bgColor;
             PlanObj.TimeSpan = tempObj.TimeSpan = newTime;
             PlanObj.Date = tempObj.Date = new DateTime(newDate.Ticks + newTime.Ticks);
             //PlanObj = tempObj;
             //
             //Console.WriteLine(PlanTitle)
             ShowNotification(PlanObj.Date);
+            Console.WriteLine("HDJDSHJDHJKJKJJKKJ");
             //
             await App.Database.EditPlanAsync(PlanObj);
             // This will pop the current page off the navigation stack

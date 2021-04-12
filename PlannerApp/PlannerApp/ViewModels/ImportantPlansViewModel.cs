@@ -60,6 +60,9 @@ namespace PlannerApp.ViewModels
             collections = await App.Database.GetPlansAsync();
             foreach (var plan in collections)
             {
+                var timespan = plan.Date - DateTime.Now;
+                plan.TimeSpan = timespan;
+                
                 if (plan.Priority == "high")
                 {
                     importantPlans.Add(plan);
@@ -81,6 +84,7 @@ namespace PlannerApp.ViewModels
         }
 
         //
+        public TimeSpan defaulttimer = new TimeSpan(0, 0, 1);
         private void Setup()
         {
 
@@ -88,8 +92,12 @@ namespace PlannerApp.ViewModels
             {
                 foreach (var plan in importantPlans)
                 {
-                    var timespan = plan.Date - DateTime.Now;
-                    plan.TimeSpan = timespan;
+                    if(plan.TimeSpan >defaulttimer)
+                    {
+                        var timespan = plan.Date - DateTime.Now;
+                        plan.TimeSpan = timespan;
+                    }
+                    
                 }
 
                 PlansList = null;

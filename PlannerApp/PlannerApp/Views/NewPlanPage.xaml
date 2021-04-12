@@ -13,7 +13,7 @@
     <ContentPage.Content>
         <Grid
             BackgroundColor="AntiqueWhite"
-            RowDefinitions="100,100,100,100,50,50,50*"
+            RowDefinitions="100,100,100*,100,50,50,60"
             ColumnDefinitions="*,*">
             
             <Label
@@ -78,7 +78,7 @@
                 Grid.Column="0"
                 MinimumDate="01/01/2021"
                 MaximumDate="12/31/2022"
-                HorizontalOptions="Center"
+                HorizontalOptions='CenterAndExpand'
                 Date="{Binding NewDate}"
                 TextColor="Black"
                 BackgroundColor="AntiqueWhite"/>
@@ -104,6 +104,7 @@
             <Picker
                 Grid.Row="5"
                 Grid.Column="1"
+                TitleColor="Black"
                 Title="Priority"
                 TextColor="Black"
                 ItemsSource="{Binding LevelsList}"

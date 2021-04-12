@@ -38,13 +38,13 @@
                                         <Label Text="{Binding PlanTitle}" FontSize="12" TextColor="#F8F8F8"/>
                                     </StackLayout>
 
-                                    <StackLayout Orientation="Horizontal" Grid.Row="1" HorizontalOptions="Center"  Margin="10" Spacing="15">
+                                    <StackLayout Orientation="Vertical" Grid.Row="1" HorizontalOptions="Center"  Margin="10" Spacing="15">
                                         <Label
-                                            Text="Saved Time(Hours)"
+                                            Text="Description"
                                             TextColor="Black"
                                             />
                                         <Label
-                                            Text="{Binding SavedTime}"
+                                            Text="{Binding PlanDescription}"
                                             TextColor="Black"
                                             />
 
