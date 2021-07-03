@@ -7,6 +7,7 @@
   * [Completed Plans](#completed-plans-&-edit-plan)
 * [Getting Started](#getting-started)
 * [Run Application](#run-application)
+* [Download APK](#download-apk)
 
 ## Showcase
 
@@ -48,3 +49,6 @@ Build Application
 
 Start Application
 ```
+### Download APK
+
+1. You can download Apk which is located in the Apk Folder.
