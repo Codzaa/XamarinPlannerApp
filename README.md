@@ -2,29 +2,21 @@
 
 ## Table of contents
 * [Showcase](#showcase)
-  * [Home Screen](#home-screen)
-  * [Adding a Plan](#adding-a-plan)
-  * [Plans hierarchy](#plans-hierarchy)
-  * [Notifications](#notifications)
-  * [Completed Plans](#completed-plans)
-  * [Edit Plan](#edit-plan)
+  * [Home Screen](#home-screen-&-adding-a-plan)
+  * [Plans hierarchy](#plans-hierarchy-&-notifications)
+  * [Completed Plans](#completed-plans-&-edit-plan)
 * [Getting Started](#getting-started)
 * [Run Application](#run-application)
 
 ## Showcase
 
-### Home Screen
-![](pics/m1.gif)
-### Adding a Plan
-![](pics/m2.gif)
-### Plans hierarchy
-![](pics/m3.gif)
-### Notifications
-![](pics/m4.gif)
-### Completed Plans
-![](pics/m5.gif)
-### Edit Plan
-![](pics/m6.gif)
+### Home Screen & Adding a Plan
+![](pics/m1.gif)![](pics/m2.gif)
+### Plans hierarchy & Notifications
+![](pics/m3.gif)![](pics/m4.gif)
+### Completed Plans & Edit Plan
+![](pics/m5.gif)![](pics/m6.gif)
+
 
 ## Getting Started
 
