@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlannerApp.Views.WelcomePage"
+             >
+    <ContentPage.Content>
+        <!--Grid with 6 Rows-->
+        <Grid 
+        RowDefinitions="300,100,100,100,100,100">
+
+            <!-- Stacklayout That contains all Labels-->
+            <StackLayout
+            Grid.Row="0"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            >
+                <Label 
+            Text="Personal Planner" 
+            FontSize="Title"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            />
+                <Label
+            Grid.Row="1"
+            Text="Simple Personal Planner"
+            Padding="10"
+            FontSize="16" 
+            />
+                <Label
+            TextColor="Black"
+            Text="KEY FEATURES:"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+                />
+                <Label
+            TextColor="Black"
+            Text="CRUD Operations for Plans"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+                />
+                <Label
+            TextColor="Black"
+            Text="Plans hierarchy"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            />
+            <Label
+            TextColor="Black"
+            Text="Countdown Timer"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            />
+            <Label
+            TextColor="Black"
+            Text="Notifications"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

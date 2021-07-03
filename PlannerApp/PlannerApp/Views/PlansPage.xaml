@@ -87,19 +87,3 @@
         </Grid>
     </ContentPage.Content>
 </ContentPage>
-<!--
-    <StackLayout>
-                            <Label
-                            Text="{Binding PlanTitle}"
-                            />
-                            <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer
-                                     NumberOfTapsRequired="1"
-                                     Command="{Binding Source={RelativeSource AncestorType={x:Type local:PlansViewModel}}, Path=ItemTapped}"
-                                     CommandParameter="{Binding .}"
-                                    >
-                                    
-                                </TapGestureRecognizer>
-                            </StackLayout.GestureRecognizers>
-                        </StackLayout>
-        -->
