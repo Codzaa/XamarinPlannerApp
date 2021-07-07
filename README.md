@@ -2,20 +2,20 @@
 
 ## Table of contents
 * [Showcase](#showcase)
-  * [Home Screen](#home-screen-&-adding-a-plan)
-  * [Plans hierarchy](#plans-hierarchy-&-notifications)
-  * [Completed Plans](#completed-plans-&-edit-plan)
+  * [Home Screen & Adding Plans](#home-screen-and-adding-a-plan)
+  * [Plans hierarchy & Notifications](#plans-hierarchy-and-notifications)
+  * [Completed Plans & Edit Plan](#completed-plans-and-edit-plan)
 * [Getting Started](#getting-started)
 * [Run Application](#run-application)
 * [Download APK](#download-apk)
 
 ## Showcase
 
-### Home Screen & Adding a Plan
+### Home Screen And Adding a Plan
 ![](pics/m1.gif)![](pics/m2.gif)
-### Plans hierarchy & Notifications
+### Plans hierarchy And Notifications
 ![](pics/m3.gif)![](pics/m4.gif)
-### Completed Plans & Edit Plan
+### Completed Plans And Edit Plan
 ![](pics/m5.gif)![](pics/m6.gif)
 
 
